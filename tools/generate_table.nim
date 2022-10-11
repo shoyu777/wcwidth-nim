@@ -86,5 +86,5 @@ proc genTable(filePath: string) =
   fo.writeLine ""
   defer : close(fo)
 
-let filePath = getAppDir() & "/EastAsianWidth.txt"
+let filePath = getAppDir() & "/EastAsianWidth-12.0.0.txt"
 genTable(filePath)
