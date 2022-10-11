@@ -1,0 +1,5 @@
+*/nimcache/
+bin/*
+*.exe
+*.backup
+tools/generate_table
