@@ -1,7 +1,7 @@
 import
   std/unicode,
-  unicode_table
-
+  unicode_table,
+  emoji_table
 
 type
   Interval = tuple[first, last: int32]
@@ -355,9 +355,9 @@ proc wcwidth*(c: Rune, isCjk: bool = true): int =
 
   # binary search in table of East Asian Width
   let targetTable = if isCjk:
-    TABLE_F_W & TABLE_A
+    TABLE_F_W & TABLE_EMOJI & TABLE_A
   else:
-    TABLE_F_W
+    TABLE_F_W & TABLE_EMOJI
   if bisearch(ucs, targetTable): return 2
 
   # binary search in table of non-spacing characters

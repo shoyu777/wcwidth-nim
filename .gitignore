@@ -3,3 +3,4 @@ bin/*
 *.exe
 *.backup
 tools/generate_table
+tests/test
