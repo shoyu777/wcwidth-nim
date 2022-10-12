@@ -25,7 +25,7 @@ proc bisearch(ucs: int32, table: openArray[Interval]): bool =
 
   result = false
 
-proc wcwidth*(c: Rune, isCjk: bool = true): int =
+proc wcwidth*(c: Rune, ambiguousIsWide: bool = false): int =
   let ucs = c.int32
   const combining = [
     # Source: DerivedGeneralCategory-12.0.0.txt
@@ -353,12 +353,11 @@ proc wcwidth*(c: Rune, isCjk: bool = true): int =
   if ucs == 0: return 0
   if ucs < 32 or (ucs >= 0x7f and ucs < 0xa0): return -1
 
-  # binary search in table of East Asian Width
-  let targetTable = if isCjk:
-    TABLE_F_W & TABLE_EMOJI & TABLE_A
-  else:
-    TABLE_F_W & TABLE_EMOJI
-  if bisearch(ucs, targetTable): return 2
+  # binary search in table of W and F
+  if bisearch(ucs, TABLE_F_W): return 2
+
+  # binary search in table of A
+  if ambiguousIsWide and bisearch(ucs, TABLE_A): return 2
 
   # binary search in table of non-spacing characters
   if bisearch(ucs, combining): return 0
@@ -379,9 +378,9 @@ proc wcwidth*(c: Rune, isCjk: bool = true): int =
     (ucs >= 0x20000 and ucs <= 0x2fffd) or
     (ucs >= 0x30000 and ucs <= 0x3fffd))).int
 
-proc wcswidth*(str: string, isCjk: bool = true): int =
+proc wcswidth*(str: string, ambiguousIsWide: bool = false): int =
   let splitStr: seq[Rune] = str.toRunes
   for c in splitStr:
-    let w = wcwidth(c, isCjk)
+    let w = wcwidth(c, ambiguousIsWide)
     if w < 0: return -1
     else: inc(result, w)
