@@ -16,7 +16,7 @@ doAssert "Pokémon GETだぜ！".wcswidth == 17 # while "Pokémon GETだぜ！".
 
 ## Document
 
-[here]()
+[here](https://shoyu777.github.io/wcwidth-nim/wcwidth.html)
 
 ## Unicode Version
 
