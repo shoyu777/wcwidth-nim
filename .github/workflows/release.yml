@@ -28,4 +28,4 @@ jobs:
         with:
           files: 'dist/wcwidth_linux.tar.gz'
         env:
-          GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
