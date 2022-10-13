@@ -27,3 +27,5 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: 'dist/wcwidth_linux.tar.gz'
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
