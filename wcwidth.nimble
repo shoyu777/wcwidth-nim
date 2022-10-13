@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.2.0"
+version       = "0.1.1"
 author        = "shoyu777"
 description   = "Implementation of wcwidth with Nim."
 license       = "MIT"
