@@ -6,8 +6,6 @@ description   = "Implementation of wcwidth with Nim."
 license       = "MIT"
 srcDir        = "src"
 skipDirs      = @["tests", "tools"]
-binDir        = "bin"
-bin           = @["wcwidth"]
 
 # Dependencies
 
