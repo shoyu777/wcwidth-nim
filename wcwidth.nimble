@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.1.1"
+version       = "0.1.2"
 author        = "shoyu777"
 description   = "Implementation of wcwidth with Nim."
 license       = "MIT"
@@ -11,7 +11,7 @@ bin           = @["wcwidth"]
 
 # Dependencies
 
-requires "nim >= 1.6.8"
+requires "nim >= 1.2.18"
 
 # Task
 task docs, "Generate documents":
