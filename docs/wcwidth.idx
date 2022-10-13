@@ -1,0 +1,2 @@
+wcwidth	wcwidth.html#wcwidth,Rune,bool	wcwidth: wcwidth(c: Rune; ambiguousIsWide: bool = false): int	
+wcswidth	wcwidth.html#wcswidth,string,bool	wcwidth: wcswidth(str: string; ambiguousIsWide: bool = false): int	

@@ -1,7 +1,6 @@
 import
   std/unicode,
-  wc_table,
-  combining_table
+  wcwidth/[wc_table, combining_table]
 
 type
   Interval = tuple[first, last: int32]

@@ -4,3 +4,4 @@ bin/*
 *.backup
 tools/generate_table
 tests/test
+/dist/
